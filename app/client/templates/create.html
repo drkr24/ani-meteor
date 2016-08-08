@@ -1,0 +1,29 @@
+<template name="create">
+    <div key="reports" class="reports-page ui-view main">
+        <div class="ng-scope">
+            <a href="{{pathFor 'overview'}}" class="pull-right btn btn-primary btn-outline btn-rounded">Back to
+                Overview</a>
+            <h2>Add new presentation
+                <small>Use power of Reveal.js</small>
+            </h2>
+
+            <i class="fa fa-dashboard bg-fade"></i>
+            <div class="jumbotron">
+                <h1>Add new presentation</h1>
+                <form class="new-pres">
+                    <p>Use Reveal.js syntax<button type="submit" class="btn btn-primary btn-lg btn-outline btn-rounded btn-create">Create</button></p>
+                    <input type="text" name="title" class="form-control title-input" placeholder="Title"/>
+                    <pre id="slides"></pre>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<!--Presentations.insert({-->
+<!--'name' : 'SamplePres',-->
+<!--'username' : 'mehowthe',-->
+<!--'created' : new Date(),-->
+<!--'slides' : data-->
+<!--});-->

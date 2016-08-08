@@ -28,8 +28,3 @@ Accounts.ui.config({
 Template.registerHelper("asJSON", function (obj) {
     return JSON.stringify(obj);
 });
-
-Accounts.onLogin(function () {
-    console.log('login successfull');
-    //Router.go("overview")
-});

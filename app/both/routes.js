@@ -1,14 +1,13 @@
 Router.route('home', {
-    path: '/'
-});
-
-Router.route('dashboard', {
-    path: '/dashboard'
+    path: '/',
+    onBeforeAction: function() {
+        this.redirect("overview");
+    }
 });
 
 Router.route('overview', {
     layoutTemplate: 'dashboard',
-    path: '/dashboard/overview'
+    path: '/overview'
 });
 
 Router.route('present', {
@@ -34,6 +33,11 @@ Router.route('present', {
     }
 });
 
+Router.route('create', {
+    layoutTemplate: 'dashboard',
+    path: '/create'
+});
+
 Router.route('watch', {
     path: '/watch/:_username',
     waitOn: function () {
@@ -48,11 +52,18 @@ Router.route('watch', {
     }
 });
 
-Router.route('reports', {
-    layoutTemplate: 'dashboard',
-    path: '/dashboard/reports'
-});
 
 Router.route('login', {
     path: '/login'
+});
+
+Router.onBeforeAction(function () {
+    if (!Meteor.user() && !Meteor.loggingIn()) {
+        this.redirect('/login');
+    } else {
+        // required by Iron to process the route handler
+        this.next();
+    }
+}, {
+    except: ['login', 'watch']
 });
