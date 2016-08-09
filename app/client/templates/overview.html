@@ -5,11 +5,25 @@
             <small>Edit and present!</small>
         </h2>
         {{#each presentations}}
-        <div class="jumbotron">
-            <ul>
-                <li><a href="/present/{{name}}">Name: {{name}}, created: {{created}}</a></li>
-            </ul>
-        </div>
+            {{> presentation}}
         {{/each}}
+    </div>
+</Template>
+
+<Template name="presentation">
+    <div class="jumbotron">
+        <p class="pres-title">{{name}}</p>
+        <p class="pull-right">
+            <small class="smaller">created: {{formatDate created}}</small>
+            <a class="btn btn-danger btn-outline btn-rounded remove">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+            <a href="/edit/{{name}}" class="btn btn-primary btn-outline btn-rounded">
+                Edit <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn-success btn-outline btn-rounded" href="/present/{{name}}">
+                Present <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+            </a>
+        </p>
     </div>
 </Template>

@@ -38,6 +38,21 @@ Router.route('create', {
     path: '/create'
 });
 
+Router.route('edit', {
+    layoutTemplate: 'dashboard',
+    path: '/edit/:_name',
+    waitOn: function () {
+        return Meteor.subscribe('presentationDetails', this.params._name);
+    },
+    data: function () {
+        return Presentations.findOne();
+    },
+    onRun: function () {
+        console.log("Edit presentation");
+        this.next();
+    }
+});
+
 Router.route('watch', {
     path: '/watch/:_username',
     waitOn: function () {

@@ -1,4 +1,3 @@
-
 Template.create.rendered = function() {
 	if(Session.get("animateChild")){
 		$(".reports-page").addClass("ng-enter");
@@ -23,12 +22,8 @@ Template.create.events({
 		event.preventDefault();
 		const target = event.target;
 		const slides = AceEditor.instance("slides").getValue();
-		Presentations.insert({
-			'name' : target.title.value,
-			'username' : Meteor.user().username,
-			'created' : new Date(),
-			'slides' : AceEditor.instance("slides").getValue()
-		});
+		Meteor.call("presentations/insert", target.title.value, AceEditor.instance("slides").getValue());
+
 		setTimeout(function () {
 			Router.go('home');
 		}, 500);

@@ -1,0 +1,19 @@
+<template name="edit">
+    <div key="reports" class="reports-page ui-view main">
+        <div class="ng-scope">
+            <a href="{{pathFor 'overview'}}" class="pull-right btn btn-primary btn-outline btn-rounded">Back to
+                Overview</a>
+            <h2>Edit presentation</h2>
+
+            <i class="fa fa-dashboard bg-fade"></i>
+            <div class="jumbotron">
+                <form class="new-pres">
+                    <p><button type="submit" class="btn btn-primary btn-lg btn-outline btn-rounded btn-create">Save</button></p>
+                    <input type="text" name="title" class="form-control title-input" placeholder="Title" value="{{name}}" />
+                    <pre id="slides">{{slides}}</pre>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</template>
