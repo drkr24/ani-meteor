@@ -11,7 +11,6 @@ Router.route('overview', {
 });
 
 Router.route('present', {
-    //layoutTemplate: 'wrapper',
     path: '/present/:_name',
     onBeforeAction: function() {
         if (!Meteor.user()) {

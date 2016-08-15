@@ -10,7 +10,6 @@ Meteor.publish("userPresentationsDetails", function(username) {
     return UserPresentations.find({'username': username, 'isRunning': true});
 });
 
-
 Meteor.publish("presentationDetailsByUser", function(_username) {
     var pres = UserPresentations.findOne({"username" : _username, "isRunning" : true});
     if (pres) {

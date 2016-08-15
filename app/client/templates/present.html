@@ -4,6 +4,9 @@
             {{{this.slides}}}
         </div>
         <nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
+                {{#if displayFooterNote}}
+                <span class="pull-left">press 'm' on keyboard to this toggle menu</span>
+                {{/if}}
                 {{#if cameraControlEnabled}}
                 <a class="bottom-menu-btn btn-success toggle-camera" href="#">
                     <i class="glyphicon glyphicon glyphicon-facetime-video" aria-hidden="true"></i> camera control enabled

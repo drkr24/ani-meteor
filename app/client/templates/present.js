@@ -2,19 +2,29 @@ import 'reveal/theme/blood.css'
 
 const WEBCAM_SWIPE_ENABLED = "webcamSwipeEnabled";
 const MENU_BOTTOM_VISIBLE = "menuBottomVisible";
+const MENU_BOTTOM_MAN = "menuBottomVisibleManually";
+
+let pushBottom, displayFooterNote;
+
+var closeMenu = function() {
+    Session.set(MENU_BOTTOM_VISIBLE, false);
+    Session.set(MENU_BOTTOM_MAN, false);
+    pushBottom.close();
+};
 
 Template.present.created = function () {
     this.presentationName = this.data.name;
-    this.theme = this.data.theme || "beige";
+    this.theme = this.data.theme || "blood";
     Session.set(WEBCAM_SWIPE_ENABLED, false);
     Session.set(MENU_BOTTOM_VISIBLE, false);
+    displayFooterNote = new ReactiveVar( true );
 };
 
 Template.present.onRendered(function() {
     var that = this;
     Reveal.initialize();
     Reveal.addEventListener('slidechanged', function() {
-        Meteor.call('userPresentations/update', Meteor.user().username, that.presentationName, Reveal.getState())
+        Meteor.call('userPresentations/update', Meteor.user().username, that.presentationName, Reveal.getState());
     });
 
     pushBottom = new Menu({
@@ -23,6 +33,10 @@ Template.present.onRendered(function() {
         menuOpenerClass: '.c-button',
         maskId: '#c-mask'
     });
+    pushBottom.open();
+    setTimeout(function() {
+       pushBottom.close();
+    }, 1000);
 });
 
 Template.present.events({
@@ -48,30 +62,45 @@ Template.present.events({
         } else {
             Swiper.destroy();
         }
-        Session.set(MENU_BOTTOM_VISIBLE, false);
-        pushBottom.close();
+        closeMenu();
     }
 });
 
 Template.present.helpers({
     "cameraControlEnabled": function() {
         return Session.get(WEBCAM_SWIPE_ENABLED);
+    },
+    "displayFooterNote": function () {
+        return displayFooterNote.get();
     }
 });
 
 Template.body.events({
     "keypress" : function (event) {
-        if (Router.current().route.getName() === "present") {
+        if (Router.current() && Router.current().route.getName() === "present") {
             var key = event.which || event.keyCode;
             if (key === 109) {
                 if (Session.get(MENU_BOTTOM_VISIBLE)) {
-                    pushBottom.close();
-                    Session.set(MENU_BOTTOM_VISIBLE, false);
+                    closeMenu();
                 } else {
+                    displayFooterNote.set(false);
+                    Session.set(MENU_BOTTOM_MAN, true);
                     pushBottom.open();
                     Session.set(MENU_BOTTOM_VISIBLE, true);
                 }
 
+            }
+        }
+    },
+    "mousemove": function(event) {
+        if (Router.current() && Router.current().route.getName() === "present") {
+            if (event.pageY > window.innerHeight - 50) {
+                pushBottom.open();
+                Session.set(MENU_BOTTOM_VISIBLE, true);
+            } else {
+                if (!Session.get(MENU_BOTTOM_MAN)) {
+                    closeMenu();
+                }
             }
         }
     }
