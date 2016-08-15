@@ -6,7 +6,7 @@ const MENU_BOTTOM_VISIBLE = "menuBottomVisible";
 Template.present.created = function () {
     this.presentationName = this.data.name;
     this.theme = this.data.theme || "beige";
-    Session.set(WEBCAM_SWIPE_ENABLED, true);
+    Session.set(WEBCAM_SWIPE_ENABLED, false);
     Session.set(MENU_BOTTOM_VISIBLE, false);
 };
 
@@ -16,7 +16,6 @@ Template.present.onRendered(function() {
     Reveal.addEventListener('slidechanged', function() {
         Meteor.call('userPresentations/update', Meteor.user().username, that.presentationName, Reveal.getState())
     });
-    Swiper.init(Template.instance().find("#reveal"));
 
     pushBottom = new Menu({
         wrapper: '#reveal',
@@ -38,13 +37,19 @@ Template.present.events({
     "webcamSwipeLeft" : function () {
         if (Session.get(WEBCAM_SWIPE_ENABLED)) {
             Reveal.navigatePrev();
-            // disable swiping for 1 second to avoid "double firing" of the event
             Session.set(WEBCAM_SWIPE_ENABLED, false);
             setTimeout(function(){ Session.set(WEBCAM_SWIPE_ENABLED, true)}, 1500);
         }
     },
     'click .toggle-camera' : function () {
         Session.set(WEBCAM_SWIPE_ENABLED, !Session.get(WEBCAM_SWIPE_ENABLED));
+        if (Session.get(WEBCAM_SWIPE_ENABLED)) {
+            Swiper.init(Template.instance().find("#reveal"));
+        } else {
+            Swiper.destroy();
+        }
+        Session.set(MENU_BOTTOM_VISIBLE, false);
+        pushBottom.close();
     }
 });
 

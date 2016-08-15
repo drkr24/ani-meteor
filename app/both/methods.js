@@ -1,6 +1,7 @@
 /*****************************************************************************/
 /*  Client and Server Methods */
 /*****************************************************************************/
+PRESENTATION_PATTERN = /^(\s*(<!--.+-->)*\s*<section.*>(.*\s*)+?<\/section>(\s*(<!--.+-->)*))+$/ig;
 
 Meteor.methods({
   'lib/method_name': function () {
@@ -12,7 +13,9 @@ Meteor.methods({
     }
     // server method logic
   },
-  'runPresentation' : function (userId, presName) {
-    
+  'validate/slides' : function(slides) {
+    return PRESENTATION_PATTERN.test(slides);
   }
 });
+
+

@@ -20,13 +20,21 @@ Template.edit.events({
     "submit": function (event) {
         // Prevent default browser form submit
         event.preventDefault();
-        console.log(this);
-        console.log(Template.instance());
-        const target = event.target;
+
+        const title = event.target.title.value;
         const slides = AceEditor.instance("slides").getValue();
-        Meteor.call("presentations/update", target.title.value, AceEditor.instance("slides").getValue());
-        setTimeout(function () {
-            Router.go('home');
-        }, 500);
+        console.log('slides', slides);
+        Meteor.call("presentations/update", this._id, title, slides,
+            function (error) {
+                if (error) {
+                    alert(error.reason);
+                } else {
+                    setTimeout(function () {
+                        Router.go('home');
+                    }, 500);
+                }
+            }
+        );
+
     }
 });

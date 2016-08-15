@@ -222,6 +222,9 @@ Swiper = (function() {
     return {
         init: function(element) {
             initializeWebcamSwiper(element);
+        },
+        destroy: function() {
+            destroyWebcamSwiper();
         }
     }
 })();
