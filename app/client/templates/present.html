@@ -1,8 +1,22 @@
 <template name="present">
-    <link rel="stylesheet" href="/packages/lsgoulart/reveal.js/css/theme/beige.css" id="theme"/>
-    <div class="reveal">
+    <div class="reveal o-wrapper" id="reveal">
         <div class="slides">
             {{{this.slides}}}
         </div>
+        <nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
+                {{#if cameraControlEnabled}}
+                <a class="bottom-menu-btn btn-success toggle-camera" href="#">
+                    <i class="glyphicon glyphicon glyphicon-facetime-video" aria-hidden="true"></i> camera control enabled
+                </a>
+                {{else}}
+                <a class="bottom-menu-btn btn-danger toggle-camera" href="#">
+                    <i class="glyphicon glyphicon glyphicon-facetime-video" aria-hidden="true"></i> camera control disabled
+                </a>
+                {{/if}}
+            <a class="bottom-menu-btn pull-right" href="{{pathFor route='overview'}}">
+                <i class="glyphicon glyphicon-arrow-left" aria-hidden="true"></i> home
+            </a>
+        </nav>
+        <div id="c-mask" class="c-mask"></div>
     </div>
 </template>

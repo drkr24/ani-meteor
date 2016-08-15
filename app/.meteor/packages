@@ -27,3 +27,4 @@ accounts-ui@1.1.9
 accounts-password@1.2.12
 davidthornton:ace-editor
 momentjs:moment
+gwendall:body-events

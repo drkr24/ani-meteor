@@ -1,4 +1,4 @@
-import 'reveal/theme/blood.css'
+// import 'reveal/theme/blood.css'
 
 Template.watch.onCreated(function() {
     var instance = this;

@@ -11,6 +11,7 @@ Router.route('overview', {
 });
 
 Router.route('present', {
+    //layoutTemplate: 'wrapper',
     path: '/present/:_name',
     onBeforeAction: function() {
         if (!Meteor.user()) {
@@ -26,7 +27,7 @@ Router.route('present', {
     data: function () {
         return Presentations.findOne();
     },
-    onRun: function () {
+    onRendered: function () {
         Meteor.call("userPresentations/insert", Meteor.user().username, this.params._name);
         console.log("Presenting " + this.params._name + " by: " + Meteor.user().username);
         this.next();
