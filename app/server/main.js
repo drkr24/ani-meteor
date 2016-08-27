@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Presentations } from '../lib/collections';
 
 Meteor.startup(() => {
     if (Presentations.find().count() > 0) {

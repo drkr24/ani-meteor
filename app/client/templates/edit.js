@@ -23,7 +23,6 @@ Template.edit.events({
 
         const title = event.target.title.value;
         const slides = AceEditor.instance("slides").getValue();
-        console.log('slides', slides);
         Meteor.call("presentations/update", this._id, title, slides,
             function (error) {
                 if (error) {

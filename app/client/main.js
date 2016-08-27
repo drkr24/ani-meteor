@@ -5,6 +5,8 @@ Accounts.ui.config({
 Template.registerHelper("asJSON", function (obj) {
     return JSON.stringify(obj);
 });
+
+
 Template.registerHelper('formatDate', function(date) {
     return moment(date).format('DD-MM-YYYY HH:mm');
 });

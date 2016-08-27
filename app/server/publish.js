@@ -1,3 +1,5 @@
+import { UserPresentations, Presentations } from "../lib/collections"
+
 Meteor.publish("presOverview", function() {
     return Presentations.find({}, {fields: {slides: 0}});
 });

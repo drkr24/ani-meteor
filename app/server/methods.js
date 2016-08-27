@@ -1,6 +1,8 @@
-Meteor.methods({
-    'userPresentations/insert': function (username, presentationName) {
-        console.log("*** called: userPresentations/insert", username, presentationName);
+import { UserPresentations, Presentations } from "../lib/collections"
+
+const methods = {
+    'userPresentations/start': function (username, presentationName) {
+        console.log("*** called: userPresentations/start", username, presentationName);
         var latest = UserPresentations.findOne({"username" : username, "isRunning" : true});
         if (latest) {
             console.log("update latest to not running");
@@ -10,9 +12,9 @@ Meteor.methods({
         }
         UserPresentations.insert({"username": username, "presentationName": presentationName, "isRunning" : true});
     },
-    'userPresentations/update': function (username, presentationName, state) {
-        console.log("*** called: userPresentations/update", username, presentationName, state);
-        const current = UserPresentations.findOne({"username" : username, "presentationName" : presentationName, 'isRunning' : true});
+    'userPresentations/update': function (username, state) {
+        console.log("*** called: userPresentations/update", username, state);
+        const current = UserPresentations.findOne({"username" : username, 'isRunning' : true});
         UserPresentations.update(current._id, {
             $set: { 'state': state }
         });
@@ -60,4 +62,8 @@ Meteor.methods({
                 'Cannot remove presentation that is not yours')
         }
     }
-});
+};
+
+Meteor.methods(methods);
+
+export { methods };

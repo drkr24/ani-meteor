@@ -1,8 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
+import { expect } from 'meteor/practicalmeteor:chai';
+import { Random } from 'meteor/random';
+import { UserPresentations } from "../lib/collections"
+import { methods } from "../server/methods"
 
 if (Meteor.isServer) {
     describe('UserPresentations method', () => {
+
 
         const username = "testUserName",
             newPresName = "newPresName",
@@ -20,10 +25,7 @@ if (Meteor.isServer) {
 
         it('should mark chosen presentation as running', () => {
 
-            const insertPresTask = Meteor.server.method_handlers['userPresentations/insert'];
-
-            insertPresTask.apply({}, [username, newPresName]);
-
+            methods["userPresentations/start"](username, newPresName);
             const existingPres = UserPresentations.findOne({"presentationName" : existingPresName});
             const runningPres = UserPresentations.findOne({"username" : username, "isRunning" : true});
 

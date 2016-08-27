@@ -1,4 +1,5 @@
 // import 'reveal/theme/blood.css'
+import { UserPresentations } from "../../lib/collections"
 
 Template.watch.onCreated(function() {
     var instance = this;

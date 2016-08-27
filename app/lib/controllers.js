@@ -1,3 +1,5 @@
+import { Presentations } from "./collections"
+
 HomeController = RouteController.extend({
     onBeforeAction: function () {
         this.redirect('/dashboard/overview');
@@ -7,9 +9,6 @@ HomeController = RouteController.extend({
 LoginController = RouteController.extend({
     onBeforeAction: function () {
         this.next();
-    },
-    onAfterAction: function(){
-
     }
 });
 
@@ -20,12 +19,6 @@ OverviewController = RouteController.extend({
     data: {
         presentations: Presentations.find({})
     },
-    onBeforeAction: function () {
-        this.next();
-    }
-});
-
-ReportsController = RouteController.extend({
     onBeforeAction: function () {
         this.next();
     }

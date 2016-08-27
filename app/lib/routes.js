@@ -1,3 +1,5 @@
+import { Presentations } from "./collections"
+
 Router.route('home', {
     path: '/',
     onBeforeAction: function() {
@@ -7,7 +9,10 @@ Router.route('home', {
 
 Router.route('overview', {
     layoutTemplate: 'dashboard',
-    path: '/overview'
+    path: '/overview',
+    onBeforeAction: function() {
+        this.next();
+    }
 });
 
 Router.route('present', {
@@ -18,6 +23,8 @@ Router.route('present', {
                 this.redirect("/login");
             }
         }
+        Meteor.call("userPresentations/start", Meteor.user().username, this.params._name);
+        console.log("Presenting " + this.params._name + " by: " + Meteor.user().username);
         this.next();
     },
     waitOn: function () {
@@ -25,11 +32,6 @@ Router.route('present', {
     },
     data: function () {
         return Presentations.findOne();
-    },
-    onRendered: function () {
-        Meteor.call("userPresentations/insert", Meteor.user().username, this.params._name);
-        console.log("Presenting " + this.params._name + " by: " + Meteor.user().username);
-        this.next();
     }
 });
 

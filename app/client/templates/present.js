@@ -24,7 +24,7 @@ Template.present.onRendered(function() {
     var that = this;
     Reveal.initialize();
     Reveal.addEventListener('slidechanged', function() {
-        Meteor.call('userPresentations/update', Meteor.user().username, that.presentationName, Reveal.getState());
+        Meteor.call('userPresentations/update', Meteor.user().username, Reveal.getState());
     });
 
     pushBottom = new Menu({
@@ -105,3 +105,8 @@ Template.body.events({
         }
     }
 });
+
+
+Session.set("webcamSwipeEnabled", true);
+
+Session.get("webcamSwipeEnabled");
