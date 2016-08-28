@@ -22,6 +22,8 @@ if (Meteor.isServer) {
             });
         });
 
+        // .. test setup //
+
         it('should mark chosen presentation as running', () => {
 
             methods["userPresentations/start"](username, newPresName);
@@ -31,5 +33,6 @@ if (Meteor.isServer) {
             assert.equal(runningPres.presentationName, newPresName);
             assert.isFalse(existingPres.isRunning);
         });
+
     });
 }

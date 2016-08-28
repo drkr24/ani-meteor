@@ -9,8 +9,8 @@ Meteor.startup(() => {
     Assets.getText('SamplePres.html', function(err, data) {
         console.log('==> insert sample presentation');
         Presentations.insert({
-            'name' : 'SamplePres',
-            'username' : 'mehowthe',
+            'name' : 'Praca magisterska',
+            'username' : 'admin',
             'created' : new Date(),
             'slides' : data
         });
