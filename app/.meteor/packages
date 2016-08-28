@@ -32,3 +32,4 @@ gwendall:body-events
 practicalmeteor:chai
 practicalmeteor:mocha
 hwillson:stub-collections
+dburles:factory

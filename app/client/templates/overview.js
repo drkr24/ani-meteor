@@ -1,3 +1,5 @@
+import "./overview.html"
+
 Template.overview.rendered = function() {
 	if (Session.get("animateChild")) {
 		$(".overview-page").addClass("ng-enter");

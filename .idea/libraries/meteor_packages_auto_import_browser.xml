@@ -477,6 +477,8 @@
         <item url="file://$USER_HOME$/.meteor/packages/lsgoulart_reveal-js/3.1.2/web.browser/reveal.js/js/reveal.js" />
         <item url="file://$USER_HOME$/.meteor/packages/practicalmeteor_chai/2.1.0_1/web.browser/packages/practicalmeteor_chai.js" />
         <item url="file://$USER_HOME$/.meteor/packages/practicalmeteor_loglevel/1.2.0_2/web.browser/packages/practicalmeteor_loglevel.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/dburles_factory/1.1.0/web.browser/factory_tests.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/dburles_factory/1.1.0/web.browser/factory.js" />
         <item url="file://$USER_HOME$/.meteor/packages/observe-sequence/1.0.12/web.browser/observe_sequence.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ordered-dict/1.0.8/web.browser/ordered_dict.js" />
         <item url="file://$USER_HOME$/.meteor/packages/gwendall_body-events/0.1.6/web.browser/packages/gwendall:body-events.js" />
@@ -1081,6 +1083,8 @@
       <root url="file://$USER_HOME$/.meteor/packages/lsgoulart_reveal-js/3.1.2/web.browser/reveal.js/js/reveal.js" />
       <root url="file://$USER_HOME$/.meteor/packages/practicalmeteor_chai/2.1.0_1/web.browser/packages/practicalmeteor_chai.js" />
       <root url="file://$USER_HOME$/.meteor/packages/practicalmeteor_loglevel/1.2.0_2/web.browser/packages/practicalmeteor_loglevel.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/dburles_factory/1.1.0/web.browser/factory_tests.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/dburles_factory/1.1.0/web.browser/factory.js" />
       <root url="file://$USER_HOME$/.meteor/packages/observe-sequence/1.0.12/web.browser/observe_sequence.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ordered-dict/1.0.8/web.browser/ordered_dict.js" />
       <root url="file://$USER_HOME$/.meteor/packages/gwendall_body-events/0.1.6/web.browser/packages/gwendall:body-events.js" />

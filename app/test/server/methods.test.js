@@ -1,9 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { expect } from 'meteor/practicalmeteor:chai';
-import { Random } from 'meteor/random';
-import { UserPresentations } from "../lib/collections"
-import { methods } from "../server/methods"
+import { UserPresentations } from "../../lib/collections"
+import { methods } from "../../server/methods"
 
 if (Meteor.isServer) {
     describe('UserPresentations method', () => {
