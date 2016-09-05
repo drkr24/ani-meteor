@@ -26,7 +26,7 @@ app should be avaiable on ```localhost:3000```
 login with this credentials to checkout account with sample presentation:
 ```
 username: admin
-password: qweqwe123
+password: padmin
 ```
 
 go to localhost:3000/present/

@@ -18,7 +18,7 @@ Meteor.startup(() => {
     if (Meteor.users.find().count() == 0) {
         Accounts.createUser({
             "username" : "admin",
-            "password": "puser"
+            "password": "padmin"
         });
         console.log("created admin user");
     }
