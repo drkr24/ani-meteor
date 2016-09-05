@@ -62,8 +62,8 @@ Router.route('edit', {
     }
 });
 
-Router.route('observe', {
-    path: '/observe/:_username',
+Router.route('watch', {
+    path: '/watch/:_username',
     waitOn: function () {
         return Meteor.subscribe('presentationDetailsByUser', this.params._username);
     },
@@ -89,5 +89,5 @@ Router.onBeforeAction(function () {
         this.next();
     }
 }, {
-    except: ['login', 'observe']
+    except: ['login', 'watch']
 });

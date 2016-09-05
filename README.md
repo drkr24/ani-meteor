@@ -29,4 +29,7 @@ username: admin
 password: padmin
 ```
 
-go to localhost:3000/present/
+go to ```localhost:3000/present/Praca%20magisterska```
+and start presenting
+
+share link ```localhost:3000/watch/admin``` with others
