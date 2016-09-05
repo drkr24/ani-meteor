@@ -1,7 +1,7 @@
 // import 'reveal/theme/blood.css'
 import { UserPresentations } from "../../lib/collections"
 
-Template.watch.onCreated(function() {
+Template.observe.onCreated(function() {
     var instance = this;
     var presentationOwner = this.data.username;
     instance.state = null;
@@ -18,6 +18,6 @@ Template.watch.onCreated(function() {
     });
 });
 
-Template.watch.onRendered( function() {
+Template.observe.onRendered( function() {
     Reveal.initialize();
 });

@@ -50,7 +50,6 @@ Swiper = (function() {
 
         if (horizontalResolution < 1 || horizontalResolution > 4000) {
             setTimeout(startSwipeRecogntion, 100);
-            console.log('Trying again');
             return;
         }
 

@@ -1,7 +1,8 @@
 import { UserPresentations, Presentations } from "../lib/collections"
 
 Meteor.publish("presOverview", function() {
-    return Presentations.find({}, {fields: {slides: 0}});
+    if (!this.userId()) return this.ready();
+    return Presentations.find({"username": Meteor.user().username}, {fields: {slides: 0}});
 });
 
 Meteor.publish("presentationDetails", function(_name) {

@@ -18,6 +18,8 @@ Template.present.created = function () {
     Session.set(WEBCAM_SWIPE_ENABLED, false);
     Session.set(MENU_BOTTOM_VISIBLE, false);
     displayFooterNote = new ReactiveVar( true );
+
+    this.data.copyLink = window.location.host + "/observe/" + Meteor.user().username;
 };
 
 Template.present.onRendered(function() {

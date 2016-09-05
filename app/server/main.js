@@ -15,4 +15,11 @@ Meteor.startup(() => {
             'slides' : data
         });
     });
+    if (Meteor.users.find().count() == 0) {
+        Accounts.createUser({
+            "username" : "admin",
+            "password": "puser"
+        });
+        console.log("created admin user");
+    }
 });

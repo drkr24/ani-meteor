@@ -4,13 +4,20 @@ Router.route('home', {
     path: '/',
     onBeforeAction: function() {
         this.redirect("overview");
+        this.next();
     }
 });
 
 Router.route('overview', {
     layoutTemplate: 'dashboard',
     path: '/overview',
-    onBeforeAction: function() {
+    waitOn: function() {
+        return this.subscribe('presOverview');
+    },
+    data: {
+        presentations: Presentations.find({})
+    },
+    onBeforeAction: function () {
         this.next();
     }
 });
@@ -55,8 +62,8 @@ Router.route('edit', {
     }
 });
 
-Router.route('watch', {
-    path: '/watch/:_username',
+Router.route('observe', {
+    path: '/observe/:_username',
     waitOn: function () {
         return Meteor.subscribe('presentationDetailsByUser', this.params._username);
     },
@@ -82,5 +89,5 @@ Router.onBeforeAction(function () {
         this.next();
     }
 }, {
-    except: ['login', 'watch']
+    except: ['login', 'observe']
 });
