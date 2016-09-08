@@ -33,3 +33,12 @@ go to ```localhost:3000/present/Praca%20magisterska```
 and start presenting
 
 share link ```localhost:3000/watch/admin``` with others
+
+#### control presentation with motion detection (optional)
+**! might not be working in some environments**
+
+in presentation mode, enable camera control and start changing slides by waving in front of your camera
+
+
+![camera control](https://cloud.githubusercontent.com/assets/5686014/18365421/ecc971bc-7612-11e6-8350-9415a109383c.png)
+
