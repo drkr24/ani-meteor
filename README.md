@@ -40,5 +40,5 @@ share link ```localhost:3000/watch/admin``` with others
 in presentation mode, enable camera control and start changing slides by waving in front of your camera
 
 
-![camera control](https://cloud.githubusercontent.com/assets/5686014/18365421/ecc971bc-7612-11e6-8350-9415a109383c.png)
+![camera control](https://cloud.githubusercontent.com/assets/5686014/18365712/0f86ba88-7614-11e6-964c-156a06985ab3.png)
 
