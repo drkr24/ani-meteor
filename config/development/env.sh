@@ -7,3 +7,9 @@
 # export ROOT_URL="http://localhost:3000"
 
 export SAMPLE_VARIABLE="somevalue"
+
+
+
+export CLUSTER_DISCOVERY_URL=mongodb://127.0.0.1:3001/meteor
+export CLUSTER_SERVICE=web # define this as a web service
+export CLUSTER_ENDPOINT_URL=http://localhost:8080

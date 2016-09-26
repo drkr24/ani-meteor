@@ -81,6 +81,12 @@ Router.route('login', {
     path: '/login'
 });
 
+Router.route('/loaderio-74f9ef6df48f8b9201f6f520b4797216', function () {
+    var req = this.request;
+    var res = this.response;
+    res.end('loaderio-74f9ef6df48f8b9201f6f520b4797216');
+}, {where: 'server'});
+
 Router.onBeforeAction(function () {
     if (!Meteor.user() && !Meteor.loggingIn()) {
         this.redirect('/login');
@@ -89,5 +95,5 @@ Router.onBeforeAction(function () {
         this.next();
     }
 }, {
-    except: ['login', 'watch']
+    except: ['login', 'watch', 'loaderio-74f9ef6df48f8b9201f6f520b4797216']
 });
