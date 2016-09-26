@@ -58,6 +58,7 @@ logging@1.1.14
 lsgoulart:reveal-js@3.1.2
 meteor@1.2.16
 meteor-base@1.0.4
+meteorhacks:cluster@1.6.9
 meteorhacks:kadira@2.30.0
 meteorhacks:meteorx@1.4.1
 minifier-css@1.1.13
